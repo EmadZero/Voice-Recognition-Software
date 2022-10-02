@@ -9,11 +9,14 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
 url2 = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
 
-payload = '{"value":"Inactive"}'
-payload = json.loads(payload)
+payload = json.dumps({
+  "value": "Active"
+})
+
 print(payload)
 headers = {
   'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
   'Cookie': 'ECLYPSERESTSESSIONID=12mqmkw373sx7lik73e7xzk4s'
 }
 
@@ -23,14 +26,3 @@ response2 = requests.request("post", url2, headers=headers, data=payload, verify
 
 print(response.text)
 print(response2.text)
-
-alldevices = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue"
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=12mqmkw373sx7lik73e7xzk4s'
-}
-
-#alldevicesResponse = requests.request("GET", alldevices, headers=headers, data="", verify=False)
-#print(alldevicesResponse.text)
-
-
