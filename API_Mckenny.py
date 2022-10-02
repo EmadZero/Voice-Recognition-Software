@@ -69,20 +69,25 @@ def get_Lightcmd2():
     return response.json
 
 #lightCmd 2 post
-def post_Lightcmd2(value):
+def post_Lightcmd4(value):
     url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/27/properties/presentValue"
 
-    payload = '{"value":"'+value+'"}'
+    payload = json.dumps({
+      "value": value
+    })
+
+
     headers = {
     'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
     'Content-Type': 'application/json',
     'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
     }
-    payload = json.loads(payload)
+    print(payload)
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json()
-post_Lightcmd2("Active")
+    return response.json
+
+
 
 #lightCmdFDBK 4 get
 def get_LightcmdFDBK4():
