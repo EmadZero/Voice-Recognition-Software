@@ -1,4 +1,3 @@
-
 import requests
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -276,7 +275,7 @@ def get_BedFDBK4():
 #multistateValue begin here
 
 #HVACC get
-def get_BedFDBK4():
+def get_HVACC():
     url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/multistateValue/5/properties/presentValue"
 
     payload = ""
@@ -288,3 +287,4 @@ def get_BedFDBK4():
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
     return response.json
+
