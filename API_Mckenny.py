@@ -288,4 +288,3 @@ def get_BedFDBK4():
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
     return response.json
-
