@@ -1,215 +1,291 @@
 
-
+import requests
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-#Fancmd 4
-import requests
+#FanCmd 4 get
+def get_fancmd4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
+#FanCmd4 post
+def post_fancmd4(value):
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
 
-print(response.text)
+    payload = '{"value":"'+value+'"}'
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("post", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
+post_fancmd4("Active")
 
-#FanStatus 4
-import requests
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/26/properties/presentValue"
+#FanStatus 4 get
+def get_fanStatus4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/26/properties/presentValue"
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
 
-print(response.text)
+#lightCmd 2 get
+def get_Lightcmd2():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/27/properties/presentValue"
 
-#lightCmd 2
-import requests
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/27/properties/presentValue"
+#lightCmd 2 post
+def post_Lightcmd2(value):
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/27/properties/presentValue"
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+    payload = '{"value":"'+value+'"}'
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("post", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
+post_Lightcmd2("Active")
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
 
-print(response.text)
+#lightCmdFDBK 4 get
+def get_LightcmdFDBK4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/28/properties/presentValue"
 
-#lightCmdFDBK 4
-import requests
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/28/properties/presentValue"
+#Curtains 4 get
+def get_Curtains4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/29/properties/presentValue"
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
+#Curtains 4 post
+def post_Curtains4(value):
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/29/properties/presentValue"
 
-print(response.text)
+    payload = '{"value":"'+value+'"}'
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("post", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
+post_Curtains4("Active")
 
-#Curtains 4
-import requests
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/29/properties/presentValue"
+#CurtainFDBK4 get
+def get_CurtainsFDBK4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/30/properties/presentValue"
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
-
-print(response.text)
-
-#CurtainFDBK4
-import requests
-
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/30/properties/presentValue"
-
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
-
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
-
-print(response.text)
 
 
 #AnalogValues begin here
 
-#SpaceTemperature 4
-import requests
+#SpaceTemperature 4 get
+def get_SpaceTemperature4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/analogValue/25/properties/presentValue"
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+#SpaceTemperature4 post
+def post_SpaceTemperature4(value):
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
 
-response = requests.request("GET", url, headers=headers, data=payload, verify= False)
+    payload = '{"value":"'+value+'"}'
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("post", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
+post_SpaceTemperature4("Active")
 
-print(response.text)
 
-#SpaceTemperature Set
-import requests
+#SpaceTemperatureSet Get
+def get_SpaceTemperatureSet4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/26/properties/presentValue"
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/analogValue/26/properties/presentValue"
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
+#LightDim FDBK 4 get
+def get_LightDimFDBK4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/27/properties/presentValue"
 
-print(response.text)
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-#LightDim FDBK 4
-import requests
+#lightDim 4 get
+def get_LightDim4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/28/properties/presentValue"
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/analogValue/27/properties/presentValue"
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+#lightDim 4 post
+def post_LightDim4(value):
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/28/properties/presentValue"
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
-
-print(response.text)
-
-#lightDim 4
-import requests
-
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/analogValue/28/properties/presentValue"
-
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
-
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
-
-print(response.text)
+    payload = '{"value":"'+value+'"}'
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("post", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
+post_LightDim4("Active")
 
 #Bed 4
-import requests
+def get_Bed4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/29/properties/presentValue"
 
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/analogValue/29/properties/presentValue"
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
+#Bed4 post 
+def post_Bed4(value):
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/29/properties/presentValue"
 
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
+    payload = '{"value":"'+value+'"}'
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("post", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
+post_Bed4("Active")
 
-print(response.text)
+#bedFDbk get
+def get_BedFDBK4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/30/properties/presentValue"
 
-#bedFDbk
-import requests
-
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/analogValue/30/properties/presentValue"
-
-payload = ""
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
-}
-
-response = requests.request("GET", url, headers=headers, data=payload, verify=False)
-
-print(response.text)
-
-#multistateValues begin here
-
-#HVACC 
-import requests
-
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/multistateValue/5/properties/presentValue"
-
-payload = ""
-
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-  'Cookie': 'ECLYPSERESTSESSIONID=12mqmkw373sx7lik73e7xzk4s'
-}
-
-response = requests.request("GET",url, headers=headers, data=payload, verify=False)
-
-print(response.text)
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
 
-#json_result = response.json()
-# requests < 1.0: json_result = result.json
-#print(json_result)
+#multistateValue begin here
 
-#json_result['value'] = '2'
+#HVACC get
+def get_BedFDBK4():
+    url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/multistateValue/5/properties/presentValue"
 
-#print(json_result)
+    payload = ""
+    headers = {
+    'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
+    'Content-Type': 'application/json',
+    'Cookie': 'ECLYPSERESTSESSIONID=1nf3d32b74ekp1fvq6xvz85pfy'
+    }
+    response = requests.request("get", url, headers=headers, data=payload, verify=False)
+    print(response.text)
+    return response.json
 
