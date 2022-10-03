@@ -1,28 +1,39 @@
 import urllib3
+import sys, getopt
 import requests
 import json
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+def update_ui(value):
+    url = "http://127.0.0.1:5000/update"
+    payload = value
+    headers = {
+      'Content-Type': 'text/plain'
+    }
 
-# url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/multistateValue/25/properties/presentValue"
-url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
-url2 = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
+    response = requests.request("POST", url, headers=headers, data=payload)
 
-payload = json.dumps({
-  "value": "Active"
-})
+    print(response.text)
 
-print(payload)
-headers = {
-  'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
-    'Content-Type': 'application/json',
-  'Cookie': 'ECLYPSERESTSESSIONID=12mqmkw373sx7lik73e7xzk4s'
-}
+def main(argv):
+   inputfile = ''
+   outputfile = ''
+   try:
+      opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+   except getopt.GetoptError:
+      print 'test.py -i <inputfile> -o <outputfile>'
+      sys.exit(2)
+   for opt, arg in opts:
+      if opt == '-h':
+         print 'test.py -i <inputfile> -o <outputfile>'
+         sys.exit()
+      elif opt in ("-i", "--ifile"):
+         inputfile = arg
+      elif opt in ("-o", "--ofile"):
+         outputfile = arg
+   print 'Input file is "', inputfile
+   print 'Output file is "', outputfile
 
-response = requests.request("get", url, headers=headers, data=payload, verify=False)
-response2 = requests.request("post", url2, headers=headers, data=payload, verify=False)
-
-
-print(response.text)
-print(response2.text)
+if __name__ == "__main__":
+   main(sys.argv[1:])

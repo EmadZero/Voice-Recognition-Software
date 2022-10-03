@@ -3,6 +3,18 @@ import urllib3
 import json
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+def update_ui(value):
+    url = "http://127.0.0.1:5000/update"
+    payload = value
+    headers = {
+      'Content-Type': 'text/plain'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
+
+
 #FanCmd 4 get
 def get_fancmd4():
     url = "https://10.50.241.5/api/rest/v1/protocols/bacnet/local/objects/binaryValue/25/properties/presentValue"
@@ -15,7 +27,7 @@ def get_fancmd4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     #print(response.text)
-    return response.json()
+    return response.text
 
 
 #FanCmd4 post
@@ -35,9 +47,7 @@ def post_fancmd4(value):
     print(payload)
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
-
-post_fancmd4("Inactive")
+    return response.text
 
 #FanStatus 4 get
 def get_fanStatus4():
@@ -51,7 +61,7 @@ def get_fanStatus4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 
 #lightCmd 2 get
@@ -66,7 +76,7 @@ def get_Lightcmd2():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #lightCmd 2 post
 def post_Lightcmd4(value):
@@ -76,7 +86,6 @@ def post_Lightcmd4(value):
       "value": value
     })
 
-
     headers = {
     'Authorization': 'Basic dGVhbTU6Q2hhbGxlbmdlVGVhbTU=',
     'Content-Type': 'application/json',
@@ -84,8 +93,8 @@ def post_Lightcmd4(value):
     }
     print(payload)
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
-    print(response.text)
-    return response.json
+    
+    return response.text
 
 
 
@@ -101,7 +110,7 @@ def get_LightcmdFDBK4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #Curtains 4 get
 def get_Curtains4():
@@ -115,7 +124,7 @@ def get_Curtains4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #Curtains 4 post
 def post_Curtains4(value):
@@ -129,7 +138,7 @@ def post_Curtains4(value):
     }
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 
 #CurtainFDBK4 get
@@ -144,7 +153,7 @@ def get_CurtainsFDBK4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 
 
@@ -162,7 +171,7 @@ def get_SpaceTemperature4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #SpaceTemperature4 post
 def post_SpaceTemperature4(value):
@@ -176,7 +185,7 @@ def post_SpaceTemperature4(value):
     }
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 
 #SpaceTemperatureSet Get
@@ -191,7 +200,7 @@ def get_SpaceTemperatureSet4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 
 #LightDim FDBK 4 get
@@ -206,7 +215,7 @@ def get_LightDimFDBK4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #lightDim 4 get
 def get_LightDim4():
@@ -220,7 +229,7 @@ def get_LightDim4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #lightDim 4 post
 def post_LightDim4(value):
@@ -234,7 +243,7 @@ def post_LightDim4(value):
     }
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #Bed 4
 def get_Bed4():
@@ -248,7 +257,7 @@ def get_Bed4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #Bed4 post 
 def post_Bed4(value):
@@ -262,7 +271,7 @@ def post_Bed4(value):
     }
     response = requests.request("post", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 #bedFDbk get
 def get_BedFDBK4():
@@ -276,7 +285,7 @@ def get_BedFDBK4():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
 
 #multistateValue begin here
@@ -293,5 +302,7 @@ def get_HVACC():
     }
     response = requests.request("get", url, headers=headers, data=payload, verify=False)
     print(response.text)
-    return response.json
+    return response.text
 
+
+post_fancmd4('Inactive')

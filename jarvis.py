@@ -12,7 +12,7 @@
 
 # The use of this copyrighted code falls under Fair Use for Research and Teaching
 # This work is not used commercially or for monetary gain
-
+import requests
 import argparse
 import os
 import struct
@@ -33,15 +33,27 @@ globalvarKeywordPath = "/Users/alexteal/PycharmProjects/picovoice/resources/porc
 globalvarContextPath = "/Users/alexteal/PycharmProjects/picovoice/resources/rhino/resources/contexts/mac/smart_lighting_mac.rhn",
 
 def api_call(input):
-    requestPacket = json.loads(input)
-    print(requestPacket)
-    intent = requestPacket["intent"]
-    if intent == "changeLightState":
-        print(mck.post_fancmd4('Inactive'))
-        print("change state")
-    elif intent == "changeColor":
-        print("change color")
-        print(requestPacket["slots"]["color"])
+    n = os.fork()
+    # n greater than 0  means parent process
+    if n > 0: #parent
+        print("") 
+    else: 
+        print("")
+        requestPacket = json.loads(input)
+        print(requestPacket)
+        intent = requestPacket["intent"]
+        if intent == "changeLightState":
+            if requestPacket["slots"]["state"] == "off":
+                print(mck.post_fancmd4('Inactive'))
+            elif requestPacket["slots"]["state"] == "on":
+                print(mck.post_fancmd4('Active'))
+        elif intent == "changeColor":
+            print(requestPacket["slots"]["color"])
+            requestPacket = json.loads(input)
+            print(requestPacket)
+            intent = requestPacket["intent"]
+
+        sys.exit(0)
 
 
 class PicovoiceDemo(Thread):
