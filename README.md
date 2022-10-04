@@ -18,4 +18,4 @@ Thank you so much to everyone who organized the event, and huge shoutout to
 Mckenney's Inc. for organizing the sponsor challenge and letting us compete!
 
 GG Team :D
-![Group pic + McKenney's Inc. Employee](./media/internet)
+![Group pic + McKenney's Inc. Employee](./media/image.jpg)
