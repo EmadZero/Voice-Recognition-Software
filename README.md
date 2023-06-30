@@ -3,6 +3,7 @@
 ## UGA Makeathon 2022
 
 Alex Teal, Emad Aljabry, and Claris Lee
+https://devpost.com/software/ducktape-and-hope?ref_content=my-projects-tab&ref_feature=my_projects 
 
 ### Goal
 
